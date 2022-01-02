@@ -14,15 +14,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 	    http
 	        .authorizeRequests()
-	        .antMatchers("/avengers/assemble").hasRole("CHAMPION")
-	        .antMatchers("/secret-bases").hasRole("DIRECTOR")
+	        .antMatchers("/avengers/assemble/**").hasRole("CHAMPION")
+	        .antMatchers("/secret-bases/**").hasRole("DIRECTOR")
 	            .and()
 	        .formLogin()
 	            .and()
 	        .httpBasic();
 	}
 	
-	// Manage user and authorizations
+	// Manage users and authorizations
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
